@@ -221,13 +221,17 @@ For code that just wants the OpenBSD-compatible API:
 ```python
 from sandbox import pledge, unveil
 
-# Restrict filesystem paths
-unveil("/etc", "r")
-unveil("/tmp", "rwc")
-unveil(None, None)          # commit
+unveil("/etc",  "r")        # can read /etc
+unveil("/tmp",  "rwc")      # can read/write/create in /tmp
+unveil(None,    None)        # everything else disappears
 
-# Restrict operations
-pledge("stdio rpath wpath")
+pledge("stdio rpath wpath")  # no network, no fork, no exec
+
+open("/etc/hostname").read()        # ✓
+open("/tmp/out.txt", "w").write("") # ✓
+open("/home/user/.ssh/id_rsa")      # ✗ EACCES — not unveiled
+import socket; socket.socket()      # ✗ EPERM  — no inet promise
+os.fork()                           # ✗ EPERM  — no proc promise
 ```
 
 ---
