@@ -2,27 +2,6 @@
 
 **Three layers of Linux sandboxing in one Python file**
 
-
-```python
-from sandbox import Sandbox
-
-Sandbox() \
-    .allow("stdio rpath") \
-    .see("/data", "r") \
-    .run(["my-agent"])
-```
-
-No C compiler. No pip install. No root required. Just drop `sandbox.py` into your project.
-
-```
-┌─────────────────────────────────────────────────────────────────┐
-│  Layer 3: Namespaces    private /tmp, overlay home, PID isolation│
-│  Layer 2: Landlock      /data=read  /tmp=write  everything else=hidden │
-│  Layer 1: SECCOMP BPF   stdio ✓  rpath ✓  inet ✗  fork ✗  exec ✗      │
-└─────────────────────────────────────────────────────────────────┘
-  Each layer is optional. Each auto-detects. Each degrades gracefully.
-```
-
 ---
 
 ## Table of Contents
