@@ -1,6 +1,11 @@
 # sandbox
 
-**Awesome Linux sandboxing in one Python file**
+<p align="center">
+  <img src="sandbox.png" alt="Choke that app" width="400">
+</p>
+<p align="center">
+<b>Three layers of Linux sandboxing in one Python file</b>
+</p>
 
 ```python
 from sandbox import Sandbox
