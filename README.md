@@ -1,13 +1,13 @@
 # sandbox
 
-**Three layers of Linux sandboxing in one Python file**
+**Awesome Linux sandboxing in one Python file!**
 
 ---
 
 ## Table of Contents
 
 - [Install](#install)
-- [Three Ways to Use It](#three-ways-to-use-it)
+- [How to Use It](#three-ways-to-use-it)
 - [CLI Reference](#cli-reference)
 - [Library API](#library-api)
   - [Sandbox Class](#sandbox-class)
@@ -60,7 +60,7 @@ namespaces:  needs root
 
 ---
 
-## Three Ways to Use It
+## How to Use It
 
 ### 1. Command-line wrapper
 
